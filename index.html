@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#155eef">
+
+  <title>Account Deletion - PocketPass</title>
+
+  <meta name="description"
+        content="Learn how to request deletion of your PocketPass account and associated personal data.">
+
+  <style>
+    :root {
+      --primary: #155eef;
+      --primary-dark: #1048bd;
+      --background: #f5f7fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --border: #e5eaf2;
+      --danger: #b42318;
+      --danger-bg: #fff3f1;
+      --blue-bg: #eef4ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .navbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px;
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      background: var(--primary);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 750;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 850px;
+      margin: 42px auto;
+      padding: 0 18px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #155eef, #427df5);
+      color: white;
+      border-radius: 22px;
+      padding: 38px 30px;
+      margin-bottom: 24px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: rgba(255,255,255,.16);
+      padding: 5px 11px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #edf3ff;
+      font-size: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 21px;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin: 18px 0 6px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul, ol {
+      padding-left: 23px;
+      margin: 12px 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      padding-left: 3px;
+    }
+
+    .notice {
+      padding: 17px;
+      background: var(--blue-bg);
+      border-radius: 12px;
+      margin: 16px 0;
+      border-left: 4px solid var(--primary);
+    }
+
+    .warning {
+      padding: 17px;
+      background: var(--danger-bg);
+      border-radius: 12px;
+      margin: 16px 0;
+      border-left: 4px solid var(--danger);
+    }
+
+    .warning strong {
+      color: var(--danger);
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 650;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .button:hover {
+      background: var(--primary-dark);
+      color: white;
+      text-decoration: none;
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      margin-bottom: 17px;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blue-bg);
+      color: var(--primary);
+      font-weight: 750;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 28px 15px 36px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      margin: 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        margin: 22px auto;
+      }
+
+      .hero {
+        padding: 29px 22px;
+        border-radius: 17px;
+      }
+
+      .card {
+        padding: 21px;
+        border-radius: 15px;
+      }
+
+      .brand {
+        font-size: 20px;
+      }
+
+      .button {
+        display: block;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="logo" aria-label="PocketPass logo">P</div>
+      <div>
+        <div class="brand">PocketPass</div>
+        <div class="brand-subtitle">Learn. Practice. Progress.</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <span class="hero-label">Account & Privacy</span>
+      <h1>Account Deletion</h1>
+      <p>
+        You have the right to request deletion of your PocketPass account
+        and associated personal data. This page explains how to submit
+        your request, what data may be deleted, and what to expect.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>1. How to Delete Your PocketPass Account</h2>
+
+      <p>
+        You can request deletion of your PocketPass account using either
+        of the following methods.
+      </p>
+
+      <h3>Option A: Through the PocketPass app</h3>
+
+      <ol class="steps">
+        <li>Open the PocketPass app on your device.</li>
+        <li>Sign in to the account you want to delete.</li>
+        <li>Open your Profile screen.</li>
+        <li>Select the Delete Account option.</li>
+        <li>Read the warning carefully and confirm your request if you
+            want to proceed.</li>
+      </ol>
+
+      <p>
+        If you cannot access the app, you may use the email method below.
+      </p>
+
+      <h3>Option B: Request deletion by email</h3>
+
+      <p>
+        Send an account deletion request from the email address associated
+        with your PocketPass account. Include your registered email
+        address and state that you want your account and associated
+        personal data deleted.
+      </p>
+
+      <a class="button"
+         href="mailto:REPLACE_WITH_SUPPORT_EMAIL?subject=PocketPass%20Account%20Deletion%20Request&body=Hello%20PocketPass%20Support%2C%0A%0AI%20request%20deletion%20of%20my%20PocketPass%20account%20and%20associated%20personal%20data.%0A%0ARegistered%20email%3A%20%0A%0APlease%20confirm%20when%20my%20request%20has%20been%20processed.%0A%0AThank%20you.">
+        Request Account Deletion
+      </a>
+
+      <div class="notice">
+        <strong>Important:</strong> The email button opens your email
+        application. It does not automatically delete your account.
+        Your request must be received and processed by PocketPass support.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. What Data Will Be Deleted?</h2>
+
+      <p>
+        Once your deletion request has been verified and processed,
+        PocketPass will delete the following data associated with your
+        account, where applicable:
+      </p>
+
+      <ul>
+        <li>Your PocketPass account and associated authentication identity.</li>
+        <li>Your profile information, such as your name, phone number,
+            email address, state and district.</li>
+        <li>Your uploaded profile photograph and associated stored image.</li>
+        <li>Personal records associated with your account that are
+            maintained by PocketPass.</li>
+      </ul>
+
+      <p>
+        Account deletion will also include associated personal data stored
+        in PocketPass systems, subject to applicable legal requirements
+        and any valid retention obligations.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>3. What Data Is Not Deleted?</h2>
+
+      <p>
+        PocketPass may contain educational materials such as books,
+        PDFs, practice questions and other learning resources provided
+        for users. These are shared educational resources, not your
+        personal account data, and are not deleted when an individual
+        account is removed.
+      </p>
+
+      <p>
+        Information that must be retained to comply with applicable law
+        or address legitimate security and legal obligations may be
+        retained only as required and handled in accordance with
+        applicable requirements.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>4. How Long Does Deletion Take?</h2>
+
+      <p>
+        PocketPass aims to process verified account deletion requests
+        within 30 days of receipt.
+      </p>
+
+      <p>
+        If additional verification is required or exceptional circumstances
+        affect processing, support may contact you using the email address
+        associated with your request.
+      </p>
+
+      <p>
+        Any data subject to a valid legal retention requirement will be
+        handled according to the applicable requirement.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>5. Important Consequences of Deletion</h2>
+
+      <div class="warning">
+        <strong>Warning: Account deletion is permanent.</strong>
+        <p>
+          After your account has been deleted, you may no longer be able
+          to sign in to your existing account or access data associated
+          with it. Your deleted personal information cannot be restored
+          through PocketPass.
+        </p>
+      </div>
+
+      <ul>
+        <li>Account-related information may be permanently removed.</li>
+        <li>You may lose access to your existing account and profile.</li>
+        <li>If you use PocketPass again, you may need to create a new account.</li>
+        <li>Deleting the app from your phone alone does not delete your
+            PocketPass account.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Account Deletion and Google Sign-In</h2>
+
+      <p>
+        If you used Google Sign-In to access PocketPass, deleting your
+        PocketPass account removes your PocketPass account and associated
+        data as described above. This does not automatically delete your
+        Google account.
+      </p>
+
+      <p>
+        PocketPass account deletion and Google account deletion are
+        separate processes.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>7. Frequently Asked Questions</h2>
+
+      <h3>Can I recover my deleted account?</h3>
+      <p>
+        No. Once account deletion is completed, your deleted account
+        information cannot be restored.
+      </p>
+
+      <h3>Will uninstalling PocketPass delete my account?</h3>
+      <p>
+        No. You must use the in-app deletion option or submit a deletion
+        request using the contact method provided on this page.
+      </p>
+
+      <h3>Can I request deletion without accessing the app?</h3>
+      <p>
+        Yes. Contact PocketPass support from your registered email address
+        and request account deletion.
+      </p>
+
+      <h3>Will my Google account also be deleted?</h3>
+      <p>
+        No. Only your PocketPass account is covered by this request.
+      </p>
+
+      <h3>How can I check my deletion request?</h3>
+      <p>
+        Contact PocketPass support using the email address listed below.
+        Include your request details so the team can help verify its status.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>8. Contact Support</h2>
+
+      <p>
+        If you have questions about account deletion, personal data,
+        or the status of a deletion request, contact PocketPass support.
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:REPLACE_WITH_SUPPORT_EMAIL">
+          REPLACE_WITH_SUPPORT_EMAIL
+        </a>
+      </p>
+
+      <p>
+        Please use your registered email address when requesting deletion.
+        Never send your password or Google account credentials.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>9. Privacy</h2>
+
+      <p>
+        PocketPass is committed to handling personal information
+        responsibly. Account deletion requests are processed in accordance
+        with applicable privacy requirements and the service's actual
+        data retention practices.
+      </p>
+
+      <p>
+        For questions about how PocketPass handles personal information,
+        contact the support email listed on this page.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> PocketPass. All rights reserved.</p>
+    <p>Account Deletion & Privacy Information</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
